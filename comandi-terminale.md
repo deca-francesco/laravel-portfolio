@@ -44,3 +44,9 @@
 
 ### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
 - php artisan migrate:refresh --seed
+
+### crea un controller risorsa: conterrà già tutte le funzioni vuote per le CRUD
+- php artisan make:controller --resource Admin/ProjectController
+
+### per vedere quali flag possiamo inserire
+- php artisan make:controller --help
