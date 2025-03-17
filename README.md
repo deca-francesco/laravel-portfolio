@@ -1,4 +1,4 @@
-<p align="center"><img src="./resources/assets/img/logo/svg/logo-no-background.svg" width="800" alt="FDC Logo"></p>
+<p align="center"><img src="./resources/assets/img/logo/png/logo-no-background.png" width="400" alt="FDC Logo"></p>
 
 # Il mio portfolio Laravel
 <p>In questo sito ci sono una parte backoffice e una frontoffice.
