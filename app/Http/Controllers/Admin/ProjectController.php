@@ -50,8 +50,8 @@ class ProjectController extends Controller
         $newProject->save();
 
         // reindirizzo alla show del progetto appena creato
-        return view("projects.show", $newProject);
-        // return redirect()->route("projects.show", $newProject);
+        // return view("projects.show", $newProject);
+        return redirect()->route("projects.show", $newProject);
     }
 
     /**
