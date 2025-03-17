@@ -26,6 +26,7 @@ class ProjectsTableSeeder extends Seeder
             // riempio le colonne
             $newProject->name = $faker->sentence(3);
             $newProject->client = $faker->company();
+            $newProject->type = $faker->word();
             $newProject->started = $faker->date();
             $newProject->finished = $faker->date();
             // $newProject->description = $faker->text($maxNbChars = 200);

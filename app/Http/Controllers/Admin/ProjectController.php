@@ -42,6 +42,7 @@ class ProjectController extends Controller
         // la valorizzo
         $newProject->name = $data["name"];  // data è un array letterale
         $newProject->client = $data["client"];
+        $newProject->type = $data["type"];
         $newProject->started = $data["started"];
         $newProject->finished = $data["finished"];
         $newProject->description = $data["description"];
@@ -72,24 +73,43 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        return view("projects.edit", compact("project"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        // prendo i parametri nella richiesta
+        $data = $request->all();
+
+        // modifico il progetto già esistente
+        $project->name = $data["name"];
+        $project->client = $data["client"];
+        $project->type = $data["type"];
+        $project->started = $data["started"];
+        $project->finished = $data["finished"];
+        $project->description = $data["description"];
+
+        // aggiorno
+        $project->update();
+
+        // reindirizzo al progetto modificato
+        return redirect()->route("projects.show", $project);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        // elimino il progetto
+        $project->delete();
+
+        // reindirizzo alla index
+        return redirect()->route("projects.index");
     }
 }
