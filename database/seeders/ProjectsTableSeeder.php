@@ -29,7 +29,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->started = $faker->date();
             $newProject->finished = $faker->date();
             // $newProject->description = $faker->text($maxNbChars = 200);
-            $newProject->description = $faker->paragraph();
+            $newProject->description = $faker->paragraph($nbSentences = 12);
 
             // salvo il record
             $newProject->save();

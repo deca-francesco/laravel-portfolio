@@ -18,12 +18,11 @@
         </p>
         <a href="https://github.com/deca-francesco" target="_blank" class="btn btn-primary btn-lg" type="button">Il mio
             Github</a>
+        <a class="btn btn-primary btn-lg ms-3" href="{{ route('projects.index') }}">Visualizza pagina progetti</a>
     </div>
 </div>
 
 <div class="content">
-    {{-- <div class="container">
-        <p>Francesco De Carlo &copy; 2025 - <a href="https://github.com/deca-francesco" target="_blank">Github</a></p>
-    </div> --}}
+
 </div>
 @endsection

@@ -17,6 +17,13 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+
+    <style>
+        main {
+            min-height: 80vh;
+            margin: 2vh 0 3vh;
+        }
+    </style>
 </head>
 
 <body class="bg-dark text-light">
@@ -24,8 +31,12 @@
 
         @include('./layouts/partials/header')
 
-        <main class="my-2">
-            @yield('content')
+        <main>
+            <div class="container">
+
+                @yield('content')
+
+            </div>
         </main>
 
         @include('./layouts/partials/footer')

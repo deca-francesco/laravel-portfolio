@@ -50,3 +50,6 @@
 
 ### per vedere quali flag possiamo inserire
 - php artisan make:controller --help
+
+### crea un componente
+- php artisan make:component card_index

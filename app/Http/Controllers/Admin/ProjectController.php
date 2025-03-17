@@ -15,7 +15,8 @@ class ProjectController extends Controller
     {
         // prendo tutte le istanze tramite il modello
         $projects = Project::all();
-        return view("projects/index", compact("projects"));
+        // li passo alla view sottoforma di array
+        return view("projects.index", compact("projects"));
     }
 
     /**
@@ -37,9 +38,16 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    // public function show(string $id)
+    public function show(Project $project)  // se prendo direttamente tutto il post non devo fare query di ricerca
     {
-        //
+        // id è tutto ciò che abbiamo dopo lo slash
+        // prendo il project tramite id
+        // $project = Project::where("id", $id)->first();
+        // $project = Project::find($id);
+        // dd($project);
+
+        return view("projects.show", compact("project"));
     }
 
     /**

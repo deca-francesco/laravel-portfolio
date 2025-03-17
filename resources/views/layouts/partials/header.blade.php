@@ -1,5 +1,11 @@
+<style>
+    header {
+        height: 10vh;
+    }
+</style>
+
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark shadow-sm h-100">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo_laravel">

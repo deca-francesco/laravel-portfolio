@@ -2,26 +2,21 @@
 
 @section('content')
 
-<div class="container my-4">
-    <h1>Tutti i progetti</h1>
+<h1 class="mb-4">Tutti i progetti</h1>
 
-    <div class="row row-cols-1 row-cols-xl-2 g-5">
-        @foreach ($projects as $project)
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4>{{ $project->name }}</h4>
-                    <p><strong>Cliente: </strong>{{ $project->client }}</p>
-                    <p><strong>Data inizio: </strong>{{ $project->started }}</p>
-                    <p>
-                        <span>
-                            <strong>Data fine: </strong>{{ $project->finished ? $project->finished : "In corso"}}
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        @endforeach
+<div class="row row-cols-1 row-cols-xl-2 g-5 mb-5">
+    @foreach ($projects as $project)
+    <div class="col">
+        <x-card_index>
+            {{-- se passo direttamente il project dà errore, senza il componente invece funziona --}}
+            <x-slot:id>{{ $project->id }}</x-slot:id>
+            <x-slot:name>{{ $project->name }}</x-slot:name>
+            <x-slot:client>{{ $project->client }}</x-slot:client>
+            <x-slot:started>{{ $project->started }}</x-slot:started>
+            <x-slot:finished>{{ $project->finished }}</x-slot:finished>
+        </x-card_index>
     </div>
+    @endforeach
 </div>
+
 @endsection
