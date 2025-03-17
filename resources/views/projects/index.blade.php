@@ -2,7 +2,10 @@
 
 @section('content')
 
-<h1 class="mb-4">Tutti i progetti</h1>
+<h1 class="mb-4 d-flex justify-content-between align-items-center">
+    Tutti i progetti
+    <a href="{{ route('projects.create') }}" class="btn btn-primary">Nuovo progetto</a>
+</h1>
 
 <div class="row row-cols-1 row-cols-xl-2 g-5 mb-5">
     @foreach ($projects as $project)

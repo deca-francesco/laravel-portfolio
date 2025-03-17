@@ -7,7 +7,7 @@
             <img src="{{ Vite::asset('./resources/assets/img/logo/png/logo-no-background.png') }}" class="w-25"
                 alt="fdc-logo ">
         </div>
-        <h1 class="display-5 fw-bold">
+        <h1 class="display-5 fw-bold my-4">
             Benvenuti nel mio portfolio di Laravel+Bootstrap <i class="bi bi-box"></i>
         </h1>
 
