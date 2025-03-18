@@ -42,12 +42,6 @@ Route::resource("projects", ProjectController::class);
 
 
 
-Route::get("/test", function () {
-    return view("test");
-});
-
-
-
 
 
 require __DIR__ . '/auth.php';

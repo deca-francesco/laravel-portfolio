@@ -31,7 +31,7 @@ class ProjectsTableSeeder extends Seeder
         // prendo a random un id tra il primo e l'ultimo (i types cancellati non saranno mai presi e quindi funzionerà anche con id mancanti)
         function getRadomTypeId($idArray)
         {
-            // prendo l'id anzichè un numero random da 1 alla lunghezza dell'array
+            // prendo l'id con indice random da 0 alla lunghezza dell'array -1
             return $idArray[rand(0, (count($idArray) - 1))];
         }
 
