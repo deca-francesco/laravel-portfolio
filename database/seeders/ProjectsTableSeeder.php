@@ -29,7 +29,7 @@ class ProjectsTableSeeder extends Seeder
         };
 
         // prendo a random un id tra il primo e l'ultimo (i types cancellati non saranno mai presi e quindi funzionerà anche con id mancanti)
-        function getRadomTypeId($idArray)
+        function getRandomTypeId($idArray)
         {
             // prendo l'id con indice random da 0 alla lunghezza dell'array -1
             return $idArray[rand(0, (count($idArray) - 1))];
@@ -47,7 +47,7 @@ class ProjectsTableSeeder extends Seeder
             // $newProject->type = $faker->word();  // il vecchio tipo darà errore se eseguiamo il refresh
 
             // creo l'id con un random tra il primo e l'ultimo id nell'array
-            $newProject->type_id = getRadomTypeId($typesIdArray);
+            $newProject->type_id = getRandomTypeId($typesIdArray);
 
             $newProject->started = $faker->date();
             $newProject->finished = $faker->date();

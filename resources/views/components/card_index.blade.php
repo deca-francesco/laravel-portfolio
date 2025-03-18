@@ -14,17 +14,17 @@
             <a class="btn btn-primary me-2" href="{{ route('projects.show', $id) }}">Dettagli</a>
             <a class="btn btn-warning me-2" href="{{ route('projects.edit', $id) }}">Modifica</a>
             {{-- Button trigger modal --}}
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal_{{$id}}">Elimina</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProjectModal_{{$id}}">Elimina</button>
         </div>
     </div>
 </div>
 
 {{-- Modal --}}
-<div class="modal fade" id="deleteModal_{{$id}}" tabindex="-1" aria-labelledby="deleteModal_{{$id}}_Label" aria-hidden="true">
+<div class="modal fade" id="deleteProjectModal_{{$id}}" tabindex="-1" aria-labelledby="deleteProjectModal_{{$id}}_Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-dark">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModal_{{$id}}_Label">Sei sicuro di voler eliminare il progetto?</h1>
+                <h1 class="modal-title fs-5" id="deleteProjectModal_{{$id}}_Label">Sei sicuro di voler eliminare il progetto?</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             {{-- <div class="modal-body"></div> --}}

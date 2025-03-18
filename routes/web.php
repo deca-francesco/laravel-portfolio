@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,11 +37,14 @@ Route::middleware(["auth", "verified"])
     });
 
 
-// rotte del controller resource (crea già le rotte per le CRUD)
+// rotte del controller resource ProjectController (crea già le rotte per le CRUD)
 Route::resource("projects", ProjectController::class);
 // ->middleware(["auth", "verified"]);
 
 
+// rotte del controller resource TypeController
+Route::resource("types", TypeController::class);
+//  ->middleware(["auth", "verified"]);
 
 
 

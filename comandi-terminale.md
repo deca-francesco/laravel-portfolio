@@ -71,3 +71,6 @@
 
 ### controlliamo lo stato delle migrations
 - php artisan migrate:status
+
+### creo il controller risorsa per i types
+- php artisan make:controller --resource Admin/TypeController

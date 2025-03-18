@@ -9,7 +9,7 @@
         <a class="btn btn-warning" href="{{ route('projects.edit', $project) }}">Modifica</a>
 
         {{-- Button trigger modal --}}
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Elimina</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProjectModal">Elimina</button>
     </span>
 </h1>
 
@@ -27,11 +27,11 @@
 
 
 {{-- Modal --}}
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteProjectModal" tabindex="-1" aria-labelledby="deleteProjectModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-dark">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">Sei sicuro di voler eliminare il progetto?</h1>
+                <h1 class="modal-title fs-5" id="deleteProjectModalLabel">Sei sicuro di voler eliminare il progetto?</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             {{-- <div class="modal-body"></div> --}}
