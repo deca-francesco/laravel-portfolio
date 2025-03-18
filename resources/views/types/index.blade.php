@@ -1,9 +1,15 @@
 @extends('layouts/app')
 
 @section('content')
-<h1>Tutti i tipi di progetto</h1>
+<h1 class="d-flex justify-content-between align-items-center">
+    Tutti i tipi di progetto
+    <span>
+        <a href="{{ route('projects.index') }}" class="btn btn-primary">Pagina progetti</a>
+        <a href="{{ route('types.create') }}" class="btn btn-primary">Nuovo tipo</a>
+    </span>
+</h1>
 
-<div class="row row-cols-2 row-cols-xl-3 g-5 mt-2">
+<div class="row row-cols-2 row-cols-xl-3 g-4 mt-2">
     @foreach ($types as $type)
     <div class="col">
         <div class="card h-100">

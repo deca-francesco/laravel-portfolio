@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- <h1>Nuovo progetto</h1> --}}
 
 <h1 class="mb-4 d-flex justify-content-between align-items-center">
     Nuovo progetto

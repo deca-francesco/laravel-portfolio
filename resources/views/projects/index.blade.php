@@ -4,7 +4,10 @@
 
 <h1 class="mb-4 d-flex justify-content-between align-items-center">
     Tutti i progetti
-    <a href="{{ route('projects.create') }}" class="btn btn-primary">Nuovo progetto</a>
+    <span>
+        <a href="{{ route('types.index') }}" class="btn btn-primary">Tipi di progetto</a>
+        <a href="{{ route('projects.create') }}" class="btn btn-primary">Nuovo progetto</a>
+    </span>
 </h1>
 
 <div class="row row-cols-1 row-cols-xl-2 g-5 mb-5">
