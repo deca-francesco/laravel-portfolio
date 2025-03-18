@@ -6,7 +6,7 @@
 
 <h1 class="mb-4 d-flex justify-content-between align-items-center">
     Nuovo progetto
-    <a href="{{ route('projects.index') }}" class="btn btn-secondary">Torna indietro</a>
+    <a href="{{ route('projects.index') }}" class="btn btn-secondary">Indietro</a>
 </h1>
 
 {{-- se non specifichiamo il metodo ci porta alla index con i valori degli input nell'url --}}
@@ -23,8 +23,12 @@
         <input type="text" class="form-control" name="client" id="client">
     </div>
     <div class="mb-3">
-        <label for="client">Tipo</label>
-        <input type="text" class="form-control" name="type" id="type" required>
+        <label for="type_id">Tipo</label>
+        <select class="form-select" name="type_id" id="type_id" required>
+            @foreach ($types as $type)
+            <option value="{{ $type->id }}">{{ $type->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="started">Inizio progetto</label>

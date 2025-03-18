@@ -15,7 +15,7 @@
             <x-slot:id>{{ $project->id }}</x-slot:id>
             <x-slot:name>{{ $project->name }}</x-slot:name>
             <x-slot:client>{{ $project->client }}</x-slot:client>
-            <x-slot:type>{{ $project->type }}</x-slot:type>
+            <x-slot:type>{{ $project->type->name }}</x-slot:type>
             <x-slot:started>{{ $project->started }}</x-slot:started>
             <x-slot:finished>{{ $project->finished }}</x-slot:finished>
         </x-card_index>

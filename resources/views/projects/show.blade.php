@@ -16,9 +16,9 @@
 <div class="row row-cols-1">
     <div class="col">
         <h3><strong>Cliente: </strong>{{ $project->client }}</h3>
-        <p><strong>Tipo: </strong>{{ $project->type }}</p>
+        <p><strong>Tipo: </strong>{{ $project->type->name }}</p>
         <p><strong>Inizio: </strong>{{ $project->started }}</p>
-        <p><strong>Fine: </strong>{{ $project->finished }}</p>
+        <p><strong>Fine: </strong>{{ $project->finished != "" ? $project->finished : "In corso"}}</p>
         <p><strong>Descrizione: </strong>{{ $project->description }}</p>
     </div>
 </div>

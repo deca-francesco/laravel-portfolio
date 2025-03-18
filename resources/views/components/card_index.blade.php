@@ -7,7 +7,7 @@
         <p><strong>Data inizio: </strong>{{ $started }}</p>
         <p>
             <span>
-                <strong>Data fine: </strong>{{ $finished ? $finished : "In corso"}}
+                <strong>Data fine: </strong>{{ $finished != "" ? $finished : "In corso"}}
             </span>
         </p>
         <div class="card-footer d-flex justify-content-end pt-4">

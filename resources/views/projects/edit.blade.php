@@ -4,7 +4,7 @@
 
 <h1 class="mb-4 d-flex justify-content-between align-items-center">
     Modifica progetto
-    <a href="{{ route('projects.index') }}" class="btn btn-secondary">Indietro</a>
+    <a href="{{ url()->previous() }}" class="btn btn-secondary">Indietro</a>
 </h1>
 
 <form action="{{ route('projects.update', $project) }}" method="POST" class="text-light">
@@ -20,8 +20,12 @@
         <input type="text" class="form-control" name="client" id="client" value="{{ $project->client }}">
     </div>
     <div class="mb-3">
-        <label for="client">Tipo</label>
-        <input type="text" class="form-control" name="type" id="type" value="{{ $project->type }}" required>
+        <label for="type_id">Tipo</label>
+        <select class="form-select" name="type_id" id="type_id" required>
+            @foreach ($types as $type)
+            <option value="{{ $type->id }}" {{ $type->id === $project->type_id ? "selected" : "" }}>{{ $type->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="started">Inizio progetto</label>

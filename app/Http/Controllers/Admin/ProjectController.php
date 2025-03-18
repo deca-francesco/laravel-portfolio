@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -24,8 +25,11 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        // ritorniamo la view col form di creazione
-        return view("projects.create");
+        // adesso devo prendere i types da passare alla select del form
+        $types = Type::all();
+
+        // ritorniamo la view col form di creazione e l'array dei types
+        return view("projects.create", compact("types"));
     }
 
     /**
@@ -42,7 +46,7 @@ class ProjectController extends Controller
         // la valorizzo
         $newProject->name = $data["name"];  // data è un array letterale
         $newProject->client = $data["client"];
-        $newProject->type = $data["type"];
+        $newProject->type_id = $data["type_id"];
         $newProject->started = $data["started"];
         $newProject->finished = $data["finished"];
         $newProject->description = $data["description"];
@@ -75,7 +79,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("projects.edit", compact("project"));
+        // prendo i types per la select del form
+        $types = Type::all();
+
+        return view("projects.edit", compact("project", "types"));
     }
 
     /**
@@ -89,7 +96,7 @@ class ProjectController extends Controller
         // modifico il progetto già esistente
         $project->name = $data["name"];
         $project->client = $data["client"];
-        $project->type = $data["type"];
+        $project->type_id = $data["type_id"];
         $project->started = $data["started"];
         $project->finished = $data["finished"];
         $project->description = $data["description"];
