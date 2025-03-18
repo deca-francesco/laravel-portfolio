@@ -53,3 +53,21 @@
 
 ### crea un componente
 - php artisan make:component card_index
+
+### crea tabella types
+- php artisan make:migration create_types_table
+
+### crea seeder tabella types
+- php artisan make:seeder TypesTableSeeder  
+
+### crea modello type
+- php artisan make:model Type
+
+### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
+- php artisan migrate:refresh --seed
+
+### migrazione per togliere la stringa fake type e inserire la foreign key type id nella tabella projects
+- php artisan make:migration add_type_id_to_projects_table
+
+### controlliamo lo stato delle migrations
+- php artisan migrate:status

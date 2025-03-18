@@ -20,6 +20,7 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+            <a class="btn btn-primary mt-3" href="{{ route('projects.index') }}">Visualizza pagina progetti</a>
         </div>
     </div>
 </div>

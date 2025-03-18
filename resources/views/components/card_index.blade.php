@@ -10,11 +10,11 @@
                 <strong>Data fine: </strong>{{ $finished ? $finished : "In corso"}}
             </span>
         </p>
-        <div class="buttons_div d-flex">
-            <a class="btn btn-outline-primary me-2" href="{{ route('projects.show', $id) }}">Dettagli</a>
-            <a class="btn btn-outline-warning me-2" href="{{ route('projects.edit', $id) }}">Modifica</a>
+        <div class="card-footer d-flex justify-content-end pt-4">
+            <a class="btn btn-primary me-2" href="{{ route('projects.show', $id) }}">Dettagli</a>
+            <a class="btn btn-warning me-2" href="{{ route('projects.edit', $id) }}">Modifica</a>
             {{-- Button trigger modal --}}
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal_{{$id}}">Elimina</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal_{{$id}}">Elimina</button>
         </div>
     </div>
 </div>
