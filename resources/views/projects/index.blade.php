@@ -5,8 +5,8 @@
 <h1 class="mb-4 d-flex justify-content-between align-items-center">
     Tutti i progetti
     <span>
-        <a href="{{ route('types.index') }}" class="btn btn-primary">Tipi di progetto</a>
-        <a href="{{ route('projects.create') }}" class="btn btn-primary">Nuovo progetto</a>
+        <a href="{{ route('types.index') }}" class="btn btn-primary">Pagina tipi di progetto</a>
+        <a href="{{ route('projects.create') }}" class="btn btn-success">Nuovo progetto</a>
     </span>
 </h1>
 

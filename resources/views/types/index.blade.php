@@ -5,7 +5,7 @@
     Tutti i tipi di progetto
     <span>
         <a href="{{ route('projects.index') }}" class="btn btn-primary">Pagina progetti</a>
-        <a href="{{ route('types.create') }}" class="btn btn-primary">Nuovo tipo</a>
+        <a href="{{ route('types.create') }}" class="btn btn-success">Nuovo tipo</a>
     </span>
 </h1>
 
