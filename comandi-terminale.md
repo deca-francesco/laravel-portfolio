@@ -83,3 +83,6 @@
 
 ### creo il seeder
 - php artisan make:seeder TechnologiesTableSeeder
+
+### creo la tabella pivot
+- php artisan make:migration create_project_technology_table
