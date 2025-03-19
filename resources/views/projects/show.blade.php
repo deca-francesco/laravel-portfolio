@@ -17,6 +17,15 @@
     <div class="col">
         <h3><strong>Cliente: </strong>{{ $project->client }}</h3>
         <p><strong>Tipo: </strong>{{ $project->type->name }}</p>
+        <p><strong>Tecnologie: </strong>
+
+            @forelse ($project->technologies as $technology)
+            <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+            @empty
+            Nessuna tecnologia selezionata
+            @endforelse
+
+        </p>
         <p><strong>Inizio: </strong>{{ $project->started }}</p>
         <p><strong>Fine: </strong>{{ $project->finished != "" ? $project->finished : "In corso"}}</p>
         <p><strong>Descrizione: </strong>{{ $project->description }}</p>

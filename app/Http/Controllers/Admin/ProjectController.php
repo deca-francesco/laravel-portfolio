@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -28,8 +29,11 @@ class ProjectController extends Controller
         // adesso devo prendere i types da passare alla select del form
         $types = Type::all();
 
+        // prendo le technologies per le checkbox del form
+        $technologies = Technology::all();
+
         // ritorniamo la view col form di creazione e l'array dei types
-        return view("projects.create", compact("types"));
+        return view("projects.create", compact("types", "technologies"));
     }
 
     /**
@@ -51,11 +55,19 @@ class ProjectController extends Controller
         $newProject->finished = $data["finished"];
         $newProject->description = $data["description"];
 
+        // dd($data);
+
         // salvo
         $newProject->save();
 
+        // DOPO che ho salvato il project salvo le technologies nella tabella pivot perché ci serve l'id del project appena creato
+        // devo scrivere technologies() con le tonde perhé sto ancora costruendo la query. Senza tonde restituisce l'array technologies 
+        // controllo per inserire le technologies solo se ne è stata selezionata almeno una
+        if ($request->has("technologies")) {
+            $newProject->technologies()->attach($data["technologies"]);
+        }
+
         // reindirizzo alla show del progetto appena creato
-        // return view("projects.show", $newProject);
         return redirect()->route("projects.show", $newProject);
     }
 
@@ -69,7 +81,7 @@ class ProjectController extends Controller
         // prendo il project tramite id
         // $project = Project::where("id", $id)->first();
         // $project = Project::find($id);
-        // dd($project);
+        // dd($project->technologies);
 
         return view("projects.show", compact("project"));
     }
@@ -79,10 +91,13 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        // prendo i types per la select del form
+        // prendo tutti i types per la select del form
         $types = Type::all();
 
-        return view("projects.edit", compact("project", "types"));
+        // prendo tutte le technologies per le checkbox del form
+        $technologies = Technology::all();
+
+        return view("projects.edit", compact("project", "types", "technologies"));
     }
 
     /**
@@ -103,6 +118,15 @@ class ProjectController extends Controller
 
         // aggiorno
         $project->update();
+
+        // controllo se nella richiesta c'è l'array delle technologies
+        if ($request->has("technologies")) {
+            // DOPO l'update synco i cambiamenti delle technologies nella tabella pivot
+            $project->technologies()->sync($data["technologies"]);
+        } else {
+            // altrimenti elimino le technologies associate al project
+            $project->technologies()->detach();
+        }
 
         // reindirizzo al progetto modificato
         return redirect()->route("projects.show", $project);

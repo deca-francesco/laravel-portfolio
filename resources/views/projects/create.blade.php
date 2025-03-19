@@ -8,6 +8,7 @@
     <a href="{{ route('projects.index') }}" class="btn btn-secondary">Indietro</a>
 </h1>
 
+
 {{-- se non specifichiamo il metodo ci porta alla index con i valori degli input nell'url --}}
 {{-- index e store hanno lo stesso URI ma cambia il metodo --}}
 <form action="{{ route('projects.store') }}" method="POST" class="text-light">
@@ -28,6 +29,19 @@
             <option value="{{ $type->id }}">{{ $type->name }}</option>
             @endforeach
         </select>
+    </div>
+    <div class="mb-3">
+        <label for="">Tecnologie</label>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
+            @foreach ($technologies as $technology)
+            <div class="col">
+                {{-- se mettiamo name="technology_{{ $technology->id }}" invierà una technology per ogni checkbox selezionata.
+                Con name="technologies[]" e value="{{ $technology->id }}" inviamo un array $technologies con elementi gli id delle technologies selezionate --}}
+                <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology_{{ $technology->id }}">
+                <label for="technology_{{ $technology->id }}" class="me-2">{{ $technology->name }}</label>
+            </div>
+            @endforeach
+        </div>
     </div>
     <div class="mb-3">
         <label for="started">Inizio progetto</label>

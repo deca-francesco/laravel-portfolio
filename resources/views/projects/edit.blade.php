@@ -23,9 +23,24 @@
         <label for="type_id">Tipo</label>
         <select class="form-select" name="type_id" id="type_id" required>
             @foreach ($types as $type)
+            {{-- faccio in modo di avere già selzionato il type del project --}}
             <option value="{{ $type->id }}" {{ $type->id === $project->type_id ? "selected" : "" }}>{{ $type->name }}</option>
             @endforeach
         </select>
+    </div>
+    <div class="mb-3">
+        <label for="">Tecnologie</label>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
+            @foreach ($technologies as $technology)
+            <div class="col">
+                {{-- se mettiamo name="technology_{{ $technology->id }}" invierà una technology per ogni checkbox selezionata.
+                Con name="technologies[]" e value="{{ $technology->id }}" inviamo un array $technologies con elementi gli id delle technologies selezionate --}}
+                {{-- faccio in modo di checkare le technologies che aveva il project --}}
+                <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology_{{ $technology->id }}" {{ $project->technologies->contains($technology->id) ? "checked" : "" }}>
+                <label for="technology_{{ $technology->id }}" class="me-2">{{ $technology->name }}</label>
+            </div>
+            @endforeach
+        </div>
     </div>
     <div class="mb-3">
         <label for="started">Inizio progetto</label>
