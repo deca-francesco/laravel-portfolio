@@ -74,3 +74,12 @@
 
 ### creo il controller risorsa per i types
 - php artisan make:controller --resource Admin/TypeController
+
+### creo la migrazione della tabella technologies
+- php artisan make:migration create_technologies_table
+
+### creo il modello Technology
+- php artisan make:model Technology
+
+### creo il seeder
+- php artisan make:seeder TechnologiesTableSeeder

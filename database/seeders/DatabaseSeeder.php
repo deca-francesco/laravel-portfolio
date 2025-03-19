@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
         // c'è la contrained sul type_id quindi devo prima riempire la tabella indipendente types e poi la projects
         $this->call([
             TypesTableSeeder::class,
-            ProjectsTableSeeder::class
+            ProjectsTableSeeder::class,
+            TechnologiesTableSeeder::class
         ]);
     }
 }

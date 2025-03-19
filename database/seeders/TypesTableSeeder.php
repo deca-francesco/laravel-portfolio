@@ -16,14 +16,16 @@ class TypesTableSeeder extends Seeder
     public function run(Faker $faker): void
     {
         $types = [
-            "Javascript",
-            "Express",
-            "React",
-            "MySQL",
-            "PHP",
-            "Laravel",
-            "Blade",
-            "Breeze"
+            "E-commerce",
+            "Blog personali",
+            "Portali aziendali",
+            "Social network",
+            "Portfolio personali",
+            "Siti di informazione e news",
+            "Applicazioni per servizi di food delivery",
+            "Piattaforme di streaming video",
+            "Siti di recensioni e valutazioni",
+            "Piattaforme di prenotazione viaggi"
         ];
 
         foreach ($types as $type) {
