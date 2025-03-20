@@ -89,3 +89,6 @@
 
 ### creo il seeder per la tabella pivot
 - php artisan make:seeder ProjectTechnologyTableSeeder
+
+### creo il controller delle technologies
+- php artisan make:controller --resource Admin/TechnologyController
