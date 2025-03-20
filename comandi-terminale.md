@@ -92,3 +92,12 @@
 
 ### creo il controller delle technologies
 - php artisan make:controller --resource Admin/TechnologyController
+
+### creo il file api.php per esporre le api per il framework frontend frontoffice
+- php artisan install:api
+
+### creo il controller Api
+- php artisan make:controller Api/ProjectController
+
+### pubblico il file routes/api.php (da eseguire)
+- php artisan route:publish api
