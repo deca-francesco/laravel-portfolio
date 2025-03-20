@@ -99,5 +99,5 @@
 ### creo il controller Api
 - php artisan make:controller Api/ProjectController
 
-### pubblico il file routes/api.php (da eseguire)
+### pubblico il file routes/api.php (da eseguire) comando non trovato
 - php artisan route:publish api
