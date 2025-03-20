@@ -57,24 +57,36 @@ class TechnologyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Technology $technology)
     {
-        //
+        return view("technologies.edit", compact("technology"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Technology $technology)
     {
-        //
+        // prendo i parametri nella richiesta
+        $data = $request->all();
+
+        // modifico il progetto già esistente
+        $technology->name = $data["name"];
+        $technology->color = $data["color"];
+
+        // aggiorno
+        $technology->update();
+
+        // reindirizzo alla index
+        return redirect()->route("technologies.index");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return redirect()->route("technologies.index");
     }
 }

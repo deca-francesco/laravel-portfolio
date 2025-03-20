@@ -16,7 +16,7 @@
         <div class="card h-100">
             <div class="card-body">
                 <h3>{{ $technology->name }}</h3>
-                <p>Colore badge: {{ $technology->color }} <input type="color" value="{{ $technology->color }}" disabled></p>
+                <p>Colore badge: {{ strtoupper($technology->color) }} <input type="color" value="{{ $technology->color }}" disabled></p>
 
             </div>
             <div class="card-footer d-flex justify-content-end pt-2">

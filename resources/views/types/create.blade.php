@@ -14,11 +14,11 @@
     @csrf
     {{-- csrf è il token di autenticazione di laravel che controlla che la chiamata provenga da un form suo e dal tuo pc, browser ecc --}}
     <div class="mb-3">
-        <label for="name">Nome tipo</label>
+        <label for="name">Nome</label>
         <input type="text" class="form-control" name="name" id="name" required>
     </div>
     <div class="mb-3">
-        <label for="description">Descrizione tipo</label>
+        <label for="description">Descrizione</label>
         <textarea class="form-control" name="description" id="description" rows="4" required></textarea>
     </div>
     <div><button type="submit" class="btn btn-success">Salva tipo</button></div>
