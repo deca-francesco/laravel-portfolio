@@ -11,7 +11,7 @@
 
 {{-- se non specifichiamo il metodo ci porta alla index con i valori degli input nell'url --}}
 {{-- index e store hanno lo stesso URI ma cambia il metodo --}}
-<form action="{{ route('projects.store') }}" method="POST" class="text-light">
+<form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data" class="text-light">
     @csrf
     {{-- csrf è il token di autenticazione di laravel che controlla che la chiamata provenga da un form suo e dal tuo pc, browser ecc --}}
     <div class="mb-3">
@@ -32,7 +32,7 @@
     </div>
     <div class="mb-3">
         <label for="">Tecnologie</label>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
             @foreach ($technologies as $technology)
             <div class="col">
                 {{-- se mettiamo name="technology_{{ $technology->id }}" invierà una technology per ogni checkbox selezionata.
@@ -50,6 +50,10 @@
     <div class="mb-3">
         <label for="finished">Fine progetto</label>
         <input type="date" class="form-control" name="finished" id="finished">
+    </div>
+    <div class="mb-3">
+        <label for="image">Immagini progetto</label>
+        <input type="file" class="form-control" name="image" id="image">
     </div>
     <div class="mb-3">
         <label for="description">Descrizione progetto</label>

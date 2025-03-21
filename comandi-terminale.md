@@ -99,5 +99,8 @@
 ### creo il controller Api
 - php artisan make:controller Api/ProjectController
 
-### pubblico il file routes/api.php (da eseguire) comando non trovato
+### pubblico il file routes/api.php (da eseguire) COMANDO NON RICONOSCIUTO (creo manualmente il file config/cors.php)
 - php artisan route:publish api
+
+### creo il collegamento su public alla cartella storage/app/public
+- php artisan storage:link

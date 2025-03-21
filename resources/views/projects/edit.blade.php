@@ -30,7 +30,7 @@
     </div>
     <div class="mb-3">
         <label for="">Tecnologie</label>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
             @foreach ($technologies as $technology)
             <div class="col">
                 {{-- se mettiamo name="technology_{{ $technology->id }}" invierà una technology per ogni checkbox selezionata.

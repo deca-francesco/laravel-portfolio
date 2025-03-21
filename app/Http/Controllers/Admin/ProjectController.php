@@ -43,6 +43,7 @@ class ProjectController extends Controller
     {
         // prendo tutti i dati dalla richiesta
         $data = $request->all();
+        dd($data);
 
         // creo l'istanza del nuovo progetto
         $newProject = new Project();
