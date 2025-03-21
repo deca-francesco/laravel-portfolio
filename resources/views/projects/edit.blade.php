@@ -7,7 +7,7 @@
     <a href="{{ url()->previous() }}" class="btn btn-secondary">Indietro</a>
 </h1>
 
-<form action="{{ route('projects.update', $project) }}" method="POST" class="text-light">
+<form action="{{ route('projects.update', $project) }}" method="POST" enctype="multipart/form-data" class="text-light">
     @csrf {{-- token di autenticazione di laravel che controlla che la chiamata provenga da un form suo e dal tuo pc, browser ecc --}}
     @method("PUT") {{-- l'attributo method accetta solo get o post, ma visto che la rotta update è associata al metodo PUT lo specifichiamo qua --}}
 
@@ -49,6 +49,16 @@
     <div class="mb-3">
         <label for="finished">Fine progetto</label>
         <input type="date" class="form-control" name="finished" id="finished" value="{{ $project->finished }}">
+    </div>
+    <div class="mb-3">
+        <label for="image">Immagine progetto</label>
+        <input type="file" class="form-control" name="image" id="image">
+
+        @if ($project->image)
+        <div>Immagine corrente:</div>
+        {{-- va costruito il percorso assoluto partendo da quello relativo del db --}}
+        <img src="{{ asset('storage/' . $project->image) }}" class="img-fluid w-25" alt="copertina">
+        @endif
     </div>
     <div class="mb-3">
         <label for="description">Descrizione progetto</label>

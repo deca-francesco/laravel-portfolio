@@ -99,8 +99,15 @@
 ### creo il controller Api
 - php artisan make:controller Api/ProjectController
 
-### pubblico il file routes/api.php (da eseguire) COMANDO NON RICONOSCIUTO (creo manualmente il file config/cors.php)
-- php artisan route:publish api
+### pubblico il file routes/api.php (da eseguire) COMANDO NON RICONOSCIUTO
+- php artisan route:publish api NON funziona
+- creo manualmente il file config/cors.php
 
 ### creo il collegamento su public alla cartella storage/app/public
 - php artisan storage:link
+
+### creo la migration per le immagini
+- php artisan make:migration add_image_to_projects_table
+
+### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
+- php artisan migrate:refresh --seed

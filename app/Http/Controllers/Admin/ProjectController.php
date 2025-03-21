@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -43,7 +44,6 @@ class ProjectController extends Controller
     {
         // prendo tutti i dati dalla richiesta
         $data = $request->all();
-        dd($data);
 
         // creo l'istanza del nuovo progetto
         $newProject = new Project();
@@ -55,6 +55,14 @@ class ProjectController extends Controller
         $newProject->started = $data["started"];
         $newProject->finished = $data["finished"];
         $newProject->description = $data["description"];
+
+        // controllo se esiste l'immagine nell'array dei dati
+        if (array_key_exists("image", $data)) {
+            // carichiamo l'immagine nello storage nella cartella projects (se non esiste la crea), il metodo putFile la rinomina anche in modo univoco a differenza di put()
+            $img_url = Storage::putFile("projects", $data["image"]);
+
+            $newProject->image = $img_url;
+        }
 
         // dd($data);
 
@@ -117,6 +125,20 @@ class ProjectController extends Controller
         $project->finished = $data["finished"];
         $project->description = $data["description"];
 
+        // dd($data);
+
+        // se esiste una nuova immagine la aggiorno, altrimenti no
+        if (array_key_exists("image", $data)) {
+            // eliminare vecchia immagine
+            Storage::delete($project->image);
+
+            // caricare la nuova
+            $img_url = Storage::putFile("projects", $data["image"]);
+
+            // aggiornare il db
+            $project->image = $img_url;
+        }
+
         // aggiorno
         $project->update();
 
@@ -138,6 +160,16 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // se il project ha un'immagine la elimino
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
+
+        // dice errore sulla constrained delle technologies quindi devo prima eliminare le technologies associate
+        if ($project->technologies) {
+            $project->technologies()->detach();
+        }
+
         // elimino il progetto
         $project->delete();
 

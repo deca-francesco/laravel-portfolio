@@ -29,6 +29,13 @@
         <p><strong>Inizio: </strong>{{ $project->started }}</p>
         <p><strong>Fine: </strong>{{ $project->finished != "" ? $project->finished : "In corso"}}</p>
         <p><strong>Descrizione: </strong>{{ $project->description }}</p>
+
+        @if ($project->image)
+        <p>Anteprima:</p>
+        {{-- va costruito il percorso assoluto partendo da quello relativo del db --}}
+        <img src="{{ asset('storage/' . $project->image) }}" style="max-width: 100%" alt="copertina">
+        @endif
+
     </div>
 </div>
 

@@ -52,7 +52,7 @@
         <input type="date" class="form-control" name="finished" id="finished">
     </div>
     <div class="mb-3">
-        <label for="image">Immagini progetto</label>
+        <label for="image">Immagine progetto</label>
         <input type="file" class="form-control" name="image" id="image">
     </div>
     <div class="mb-3">
