@@ -15,7 +15,7 @@
 
 <div class="row row-cols-1">
     <div class="col">
-        <h3><strong>Cliente: </strong>{{ $project->client }}</h3>
+        <p><strong>Cliente: </strong>{{ $project->client ? $project->client : "nessun cliente" }}</p>
         <p><strong>Tipo: </strong>{{ $project->type->name }}</p>
         <p><strong>Tecnologie: </strong>
 
