@@ -18,7 +18,7 @@
 - php artisan serve
 - npm run dev
 
-### crea il controller
+### crea il controller per le rotte con autenticazione
 - php artisan make:controller Admin/DashboardController
 
 ### controlla la lista delle rotte
@@ -51,17 +51,17 @@
 ### per vedere quali flag possiamo inserire
 - php artisan make:controller --help
 
-### crea un componente
+### crea il componente per la index
 - php artisan make:component card_index
 
 ### crea tabella types
 - php artisan make:migration create_types_table
 
-### crea seeder tabella types
-- php artisan make:seeder TypesTableSeeder  
-
 ### crea modello type
 - php artisan make:model Type
+
+### crea seeder tabella types
+- php artisan make:seeder TypesTableSeeder  
 
 ### esegui tutti i rollback di tutte le migrations, poi le funzioni up di tutte le migrations e poi tutti i seeder
 - php artisan migrate:refresh --seed

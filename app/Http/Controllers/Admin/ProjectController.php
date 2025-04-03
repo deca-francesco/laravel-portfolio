@@ -17,7 +17,8 @@ class ProjectController extends Controller
     public function index()
     {
         // prendo tutte le istanze tramite il modello
-        $projects = Project::all();
+        // $projects = Project::all();
+        $projects = Project::orderBy('started', 'asc')->get();
         // li passo alla view sottoforma di array
         return view("projects.index", compact("projects"));
     }
@@ -129,8 +130,10 @@ class ProjectController extends Controller
 
         // se esiste una nuova immagine la aggiorno, altrimenti no
         if (array_key_exists("image", $data)) {
-            // eliminare vecchia immagine
-            Storage::delete($project->image);
+            // eliminare vecchia immagine se c'è
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
 
             // caricare la nuova
             $img_url = Storage::putFile("projects", $data["image"]);

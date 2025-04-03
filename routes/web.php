@@ -39,18 +39,18 @@ Route::middleware(["auth", "verified"])
 
 
 // rotte del controller resource ProjectController (crea già le rotte per le CRUD)
-Route::resource("projects", ProjectController::class)
-    ->middleware(["auth", "verified"]);
+Route::resource("projects", ProjectController::class);
+// ->middleware(["auth", "verified"]);
 
 
 // rotte del controller resource TypeController
-Route::resource("types", TypeController::class)
-    ->middleware(["auth", "verified"]);
+Route::resource("types", TypeController::class);
+// ->middleware(["auth", "verified"]);
 
 
 // rotte del controller resource TechnologyController
-Route::resource("technologies", TechnologyController::class)
-    ->middleware(["auth", "verified"]);
+Route::resource("technologies", TechnologyController::class);
+// ->middleware(["auth", "verified"]);
 
 
 require __DIR__ . '/auth.php';

@@ -11,7 +11,7 @@ class ProjectController extends Controller
     public function index()
     {
         // prendo i projects dal db e gli dico anche di prendere l'intero type associato ad ogni project (query con with e nome della relazione nel modello Project)
-        $projects = Project::with("type")->get();
+        $projects = Project::with("type")->orderBy('started', 'asc')->get();
         // $projects = Project::all();
         // dd($projects);
 
